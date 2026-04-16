@@ -1,0 +1,1910 @@
+{
+  "2014-2015/Chelsea_1-1_Burnley/1::0": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::0",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 119,
+    "skipped": false,
+    "scene1": [
+      115,
+      116,
+      117,
+      118,
+      119
+    ],
+    "scene2": [
+      120,
+      121,
+      122,
+      123,
+      124
+    ]
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::1": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::1",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 123,
+    "skipped": false,
+    "scene1": [
+      119,
+      120,
+      121,
+      122,
+      123
+    ],
+    "scene2": [
+      124,
+      125,
+      126,
+      127,
+      128
+    ]
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::2": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::2",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 175,
+    "skipped": false,
+    "scene1": [
+      171,
+      172,
+      173,
+      174,
+      175
+    ],
+    "scene2": [
+      176,
+      177,
+      178,
+      179,
+      180
+    ]
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::3": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::3",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 176,
+    "skipped": false,
+    "scene1": [
+      172,
+      173,
+      174,
+      175,
+      176
+    ],
+    "scene2": [
+      177,
+      178,
+      179,
+      180,
+      181
+    ]
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::4": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::4",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 181,
+    "skipped": false,
+    "scene1": [
+      172,
+      173,
+      174,
+      175,
+      176
+    ],
+    "scene2": [
+      177,
+      178,
+      179,
+      180,
+      181
+    ]
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::5": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::5",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 203,
+    "skipped": false,
+    "scene1": [
+      200,
+      201,
+      202,
+      203,
+      204
+    ],
+    "scene2": [
+      205,
+      206,
+      207,
+      208,
+      209
+    ]
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::6": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::6",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 204,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::7": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::7",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 205,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::8": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::8",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 206,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::9": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::9",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 207,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::10": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::10",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 208,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::11": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::11",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 209,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::12": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::12",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 210,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::13": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::13",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 211,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::14": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::14",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 212,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::15": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::15",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 213,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::16": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::16",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 214,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::17": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::17",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 215,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::18": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::18",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 216,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::19": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::19",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 217,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::20": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::20",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 275,
+    "skipped": false,
+    "scene1": [
+      266,
+      267,
+      268,
+      269,
+      270
+    ],
+    "scene2": [
+      271,
+      272,
+      273,
+      274,
+      275
+    ]
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::21": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::21",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 276,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::22": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::22",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 281,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::23": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::23",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 296,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::24": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::24",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 316,
+    "skipped": false,
+    "scene1": [
+      313,
+      314,
+      315,
+      316,
+      317
+    ],
+    "scene2": [
+      318,
+      319,
+      320,
+      321,
+      322
+    ]
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::25": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::25",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 318,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::26": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::26",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 320,
+    "skipped": false,
+    "scene1": [
+      313,
+      314,
+      315,
+      316,
+      317
+    ],
+    "scene2": [
+      318,
+      319,
+      320,
+      321,
+      322
+    ]
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::27": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::27",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 321,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::28": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::28",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 323,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::29": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::29",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 329,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::30": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::30",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 332,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::31": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::31",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 354,
+    "skipped": false,
+    "scene1": [
+      351,
+      352,
+      353,
+      354,
+      355
+    ],
+    "scene2": [
+      356,
+      357,
+      358,
+      359,
+      360
+    ]
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::32": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::32",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 362,
+    "skipped": false,
+    "scene1": [
+      351,
+      352,
+      353,
+      354,
+      355
+    ],
+    "scene2": [
+      356,
+      357,
+      358,
+      359,
+      360
+    ]
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::33": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::33",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 460,
+    "skipped": false,
+    "scene1": [
+      456,
+      457,
+      458,
+      459,
+      460
+    ],
+    "scene2": [
+      461,
+      462,
+      463,
+      464,
+      465
+    ]
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::34": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::34",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 464,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::35": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::35",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 547,
+    "skipped": false,
+    "scene1": [
+      544,
+      545,
+      546,
+      547,
+      548
+    ],
+    "scene2": [
+      549,
+      550,
+      551,
+      552,
+      553
+    ]
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::36": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::36",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 548,
+    "skipped": false,
+    "scene1": [
+      544,
+      545,
+      546,
+      547,
+      548
+    ],
+    "scene2": [
+      549,
+      550,
+      551,
+      552,
+      553
+    ]
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::37": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::37",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 554,
+    "skipped": false,
+    "scene1": [
+      550,
+      551,
+      552,
+      553,
+      554
+    ],
+    "scene2": [
+      555,
+      556,
+      557,
+      558,
+      559
+    ]
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::38": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::38",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 555,
+    "skipped": false,
+    "scene1": [
+      544,
+      545,
+      546,
+      547,
+      548
+    ],
+    "scene2": [
+      549,
+      550,
+      551,
+      552,
+      553
+    ]
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::39": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::39",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 558,
+    "skipped": false,
+    "scene1": [
+      544,
+      545,
+      546,
+      547,
+      548
+    ],
+    "scene2": [
+      549,
+      550,
+      551,
+      552,
+      553
+    ]
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::40": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::40",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 559,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::41": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::41",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 560,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::42": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::42",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 575,
+    "skipped": false,
+    "scene1": [
+      572,
+      573,
+      574,
+      575,
+      576
+    ],
+    "scene2": [
+      579,
+      580,
+      581,
+      582,
+      583
+    ]
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::43": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::43",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 644,
+    "skipped": false,
+    "scene1": [
+      641,
+      642,
+      643,
+      644,
+      645
+    ],
+    "scene2": [
+      646,
+      647,
+      648,
+      649,
+      650
+    ]
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::44": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::44",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 648,
+    "skipped": false,
+    "scene1": [
+      641,
+      642,
+      643,
+      644,
+      645
+    ],
+    "scene2": [
+      646,
+      647,
+      648,
+      649,
+      650
+    ]
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::45": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::45",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 649,
+    "skipped": false,
+    "scene1": [
+      641,
+      642,
+      643,
+      644,
+      645
+    ],
+    "scene2": [
+      646,
+      647,
+      648,
+      649,
+      650
+    ]
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::46": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::46",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 651,
+    "skipped": false,
+    "scene1": [
+      641,
+      642,
+      643,
+      644,
+      645
+    ],
+    "scene2": [
+      646,
+      647,
+      648,
+      649,
+      650
+    ]
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::47": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::47",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 652,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::48": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::48",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 653,
+    "skipped": false,
+    "scene1": [
+      652,
+      653,
+      654,
+      655,
+      656
+    ],
+    "scene2": [
+      657,
+      658,
+      659,
+      660,
+      661
+    ]
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::49": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::49",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 655,
+    "skipped": false,
+    "scene1": [
+      665,
+      666,
+      667,
+      668,
+      669
+    ],
+    "scene2": [
+      660,
+      661,
+      662,
+      663,
+      664
+    ]
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::50": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::50",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 656,
+    "skipped": false,
+    "scene1": [
+      660,
+      661,
+      662,
+      663,
+      664
+    ],
+    "scene2": [
+      665,
+      666,
+      667,
+      668,
+      669
+    ]
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::51": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::51",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 658,
+    "skipped": false,
+    "scene1": [
+      665,
+      666,
+      667,
+      668,
+      669
+    ],
+    "scene2": [
+      660,
+      661,
+      662,
+      663,
+      664
+    ]
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::52": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::52",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 660,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::53": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::53",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 661,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::54": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::54",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 663,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::55": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::55",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 686,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::56": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::56",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 689,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::57": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::57",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 699,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::58": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::58",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 700,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::59": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::59",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 704,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::60": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::60",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 705,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::61": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::61",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 708,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::62": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::62",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 711,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::63": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::63",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 800,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::64": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::64",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 807,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::65": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::65",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 809,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::66": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::66",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 810,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::67": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::67",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 814,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::68": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::68",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 815,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::69": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::69",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 823,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::70": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::70",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 833,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::71": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::71",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 834,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::72": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::72",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 859,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::73": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::73",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 871,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::74": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::74",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 873,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::75": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::75",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 939,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::76": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::76",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 941,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::77": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::77",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 943,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::78": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::78",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 946,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::79": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::79",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 947,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::80": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::80",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 950,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::81": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::81",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 951,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::82": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::82",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 952,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::83": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::83",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 953,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::84": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::84",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 954,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::85": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::85",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 955,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::86": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::86",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 956,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::87": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::87",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 957,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::88": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::88",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 959,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::89": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::89",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 961,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::90": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::90",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 962,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::91": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::91",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 967,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::92": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::92",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 1048,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::93": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::93",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 1049,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::94": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::94",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 1054,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::95": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::95",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 1059,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::96": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::96",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 1079,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::97": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::97",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 1082,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::98": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::98",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 1083,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::99": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::99",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 1084,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::100": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::100",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 1085,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::101": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::101",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 1086,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::102": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::102",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 1087,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::103": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::103",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 1088,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::104": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::104",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 1090,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::105": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::105",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 1091,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::106": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::106",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 1092,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::107": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::107",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 1093,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::108": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::108",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 1094,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::109": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::109",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 1095,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::110": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::110",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 1096,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::111": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::111",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 1097,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::112": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::112",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 1098,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::113": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::113",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 1100,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::114": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::114",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 1101,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::115": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::115",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 1102,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::116": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::116",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 1103,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::117": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::117",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 1104,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::118": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::118",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 1105,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::119": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::119",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 1109,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::120": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::120",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 1114,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::121": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::121",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 1128,
+    "skipped": false,
+    "scene1": [
+      1125,
+      1126,
+      1127,
+      1128,
+      1129
+    ],
+    "scene2": [
+      1130,
+      1131,
+      1132,
+      1133,
+      1134
+    ]
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::122": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::122",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 1170,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::123": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::123",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 1270,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::124": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::124",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 1272,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::125": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::125",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 1273,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::126": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::126",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 1324,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::127": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::127",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 1325,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::128": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::128",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 1326,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::129": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::129",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 1429,
+    "skipped": false,
+    "scene1": [
+      1425,
+      1426,
+      1427,
+      1428,
+      1429
+    ],
+    "scene2": [
+      1431,
+      1432,
+      1433,
+      1434,
+      1435
+    ]
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::130": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::130",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 1645,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::131": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::131",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 1661,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::132": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::132",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 1662,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::133": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::133",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 1663,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::134": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::134",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 1665,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::135": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::135",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 1666,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::136": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::136",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 1667,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::137": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::137",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 1670,
+    "skipped": false,
+    "scene1": [
+      1675,
+      1676,
+      1677,
+      1678,
+      1679
+    ],
+    "scene2": [
+      1680,
+      1681,
+      1682,
+      1683,
+      1684
+    ]
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::138": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::138",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 1671,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::139": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::139",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 1672,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::140": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::140",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 1676,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::141": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::141",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 1677,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::142": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::142",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 1678,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::143": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::143",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 1679,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::144": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::144",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 1680,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::145": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::145",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 1681,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::146": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::146",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 1682,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::147": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::147",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 1683,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::148": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::148",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 1686,
+    "skipped": false,
+    "scene1": [
+      1673,
+      1674,
+      1675,
+      1676,
+      1677
+    ],
+    "scene2": [
+      1681,
+      1682,
+      1683,
+      1684,
+      1685
+    ]
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::149": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::149",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 1687,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::150": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::150",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 1690,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::152": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::152",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 1706,
+    "skipped": true
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::151": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::151",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 1705,
+    "decision": "rejected"
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::153": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::153",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 1742,
+    "decision": "approved"
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::154": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::154",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 1748,
+    "decision": "approved"
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::155": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::155",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 1751,
+    "decision": "rejected"
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::156": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::156",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 1759,
+    "decision": "approved"
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::157": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::157",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 1791,
+    "decision": "approved"
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::158": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::158",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 1795,
+    "decision": "approved"
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::159": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::159",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 1796,
+    "decision": "approved"
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::160": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::160",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 1797,
+    "decision": "approved"
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::161": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::161",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 1798,
+    "decision": "approved"
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::162": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::162",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 1801,
+    "decision": "approved"
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::163": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::163",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 1802,
+    "decision": "approved"
+  },
+  "2014-2015/Chelsea_1-1_Burnley/1::164": {
+    "key": "2014-2015/Chelsea_1-1_Burnley/1::164",
+    "half_key": "2014-2015/Chelsea_1-1_Burnley/1",
+    "cut_frame": 1805,
+    "decision": "approved"
+  },
+  "2015-2016/Chelsea_2-2_Swansea/1::0": {
+    "key": "2015-2016/Chelsea_2-2_Swansea/1::0",
+    "half_key": "2015-2016/Chelsea_2-2_Swansea/1",
+    "cut_frame": 8,
+    "decision": "rejected"
+  },
+  "2015-2016/Chelsea_2-2_Swansea/1::1": {
+    "key": "2015-2016/Chelsea_2-2_Swansea/1::1",
+    "half_key": "2015-2016/Chelsea_2-2_Swansea/1",
+    "cut_frame": 21,
+    "decision": "rejected"
+  },
+  "2015-2016/Chelsea_2-2_Swansea/1::2": {
+    "key": "2015-2016/Chelsea_2-2_Swansea/1::2",
+    "half_key": "2015-2016/Chelsea_2-2_Swansea/1",
+    "cut_frame": 22,
+    "decision": "rejected"
+  },
+  "2015-2016/Chelsea_2-2_Swansea/1::3": {
+    "key": "2015-2016/Chelsea_2-2_Swansea/1::3",
+    "half_key": "2015-2016/Chelsea_2-2_Swansea/1",
+    "cut_frame": 85,
+    "decision": "approved"
+  },
+  "2015-2016/Chelsea_2-2_Swansea/1::4": {
+    "key": "2015-2016/Chelsea_2-2_Swansea/1::4",
+    "half_key": "2015-2016/Chelsea_2-2_Swansea/1",
+    "cut_frame": 86,
+    "decision": "approved"
+  },
+  "2015-2016/Chelsea_2-2_Swansea/1::5": {
+    "key": "2015-2016/Chelsea_2-2_Swansea/1::5",
+    "half_key": "2015-2016/Chelsea_2-2_Swansea/1",
+    "cut_frame": 93,
+    "decision": "rejected"
+  },
+  "2015-2016/Chelsea_2-2_Swansea/1::6": {
+    "key": "2015-2016/Chelsea_2-2_Swansea/1::6",
+    "half_key": "2015-2016/Chelsea_2-2_Swansea/1",
+    "cut_frame": 94,
+    "decision": "rejected"
+  },
+  "2015-2016/Chelsea_2-2_Swansea/1::7": {
+    "key": "2015-2016/Chelsea_2-2_Swansea/1::7",
+    "half_key": "2015-2016/Chelsea_2-2_Swansea/1",
+    "cut_frame": 104,
+    "decision": "approved"
+  },
+  "2015-2016/Chelsea_2-2_Swansea/1::8": {
+    "key": "2015-2016/Chelsea_2-2_Swansea/1::8",
+    "half_key": "2015-2016/Chelsea_2-2_Swansea/1",
+    "cut_frame": 107,
+    "decision": "approved"
+  },
+  "2015-2016/Chelsea_2-2_Swansea/1::9": {
+    "key": "2015-2016/Chelsea_2-2_Swansea/1::9",
+    "half_key": "2015-2016/Chelsea_2-2_Swansea/1",
+    "cut_frame": 147,
+    "decision": "rejected"
+  },
+  "2015-2016/Chelsea_2-2_Swansea/1::10": {
+    "key": "2015-2016/Chelsea_2-2_Swansea/1::10",
+    "half_key": "2015-2016/Chelsea_2-2_Swansea/1",
+    "cut_frame": 220,
+    "decision": "approved"
+  },
+  "2015-2016/Chelsea_2-2_Swansea/1::11": {
+    "key": "2015-2016/Chelsea_2-2_Swansea/1::11",
+    "half_key": "2015-2016/Chelsea_2-2_Swansea/1",
+    "cut_frame": 223,
+    "decision": "rejected"
+  },
+  "2015-2016/Chelsea_2-2_Swansea/1::12": {
+    "key": "2015-2016/Chelsea_2-2_Swansea/1::12",
+    "half_key": "2015-2016/Chelsea_2-2_Swansea/1",
+    "cut_frame": 224,
+    "decision": "rejected"
+  },
+  "2015-2016/Chelsea_2-2_Swansea/1::13": {
+    "key": "2015-2016/Chelsea_2-2_Swansea/1::13",
+    "half_key": "2015-2016/Chelsea_2-2_Swansea/1",
+    "cut_frame": 225,
+    "decision": "rejected"
+  },
+  "2015-2016/Chelsea_2-2_Swansea/1::14": {
+    "key": "2015-2016/Chelsea_2-2_Swansea/1::14",
+    "half_key": "2015-2016/Chelsea_2-2_Swansea/1",
+    "cut_frame": 226,
+    "decision": "rejected"
+  },
+  "2015-2016/Chelsea_2-2_Swansea/1::15": {
+    "key": "2015-2016/Chelsea_2-2_Swansea/1::15",
+    "half_key": "2015-2016/Chelsea_2-2_Swansea/1",
+    "cut_frame": 229,
+    "decision": "rejected"
+  },
+  "2015-2016/Chelsea_2-2_Swansea/1::16": {
+    "key": "2015-2016/Chelsea_2-2_Swansea/1::16",
+    "half_key": "2015-2016/Chelsea_2-2_Swansea/1",
+    "cut_frame": 249,
+    "decision": "approved"
+  },
+  "2015-2016/Chelsea_2-2_Swansea/1::17": {
+    "key": "2015-2016/Chelsea_2-2_Swansea/1::17",
+    "half_key": "2015-2016/Chelsea_2-2_Swansea/1",
+    "cut_frame": 257,
+    "decision": "approved"
+  },
+  "2015-2016/Chelsea_2-2_Swansea/1::18": {
+    "key": "2015-2016/Chelsea_2-2_Swansea/1::18",
+    "half_key": "2015-2016/Chelsea_2-2_Swansea/1",
+    "cut_frame": 274,
+    "decision": "rejected"
+  },
+  "2015-2016/Chelsea_2-2_Swansea/1::19": {
+    "key": "2015-2016/Chelsea_2-2_Swansea/1::19",
+    "half_key": "2015-2016/Chelsea_2-2_Swansea/1",
+    "cut_frame": 275,
+    "decision": "approved"
+  },
+  "2015-2016/Chelsea_2-2_Swansea/1::20": {
+    "key": "2015-2016/Chelsea_2-2_Swansea/1::20",
+    "half_key": "2015-2016/Chelsea_2-2_Swansea/1",
+    "cut_frame": 352,
+    "decision": "rejected"
+  },
+  "2015-2016/Chelsea_2-2_Swansea/1::21": {
+    "key": "2015-2016/Chelsea_2-2_Swansea/1::21",
+    "half_key": "2015-2016/Chelsea_2-2_Swansea/1",
+    "cut_frame": 355,
+    "decision": "rejected"
+  },
+  "2015-2016/Chelsea_2-2_Swansea/1::22": {
+    "key": "2015-2016/Chelsea_2-2_Swansea/1::22",
+    "half_key": "2015-2016/Chelsea_2-2_Swansea/1",
+    "cut_frame": 361,
+    "decision": "rejected"
+  },
+  "2015-2016/Chelsea_2-2_Swansea/1::23": {
+    "key": "2015-2016/Chelsea_2-2_Swansea/1::23",
+    "half_key": "2015-2016/Chelsea_2-2_Swansea/1",
+    "cut_frame": 367,
+    "decision": "approved"
+  },
+  "2015-2016/Chelsea_2-2_Swansea/1::24": {
+    "key": "2015-2016/Chelsea_2-2_Swansea/1::24",
+    "half_key": "2015-2016/Chelsea_2-2_Swansea/1",
+    "cut_frame": 368,
+    "decision": "approved"
+  },
+  "2015-2016/Chelsea_2-2_Swansea/1::25": {
+    "key": "2015-2016/Chelsea_2-2_Swansea/1::25",
+    "half_key": "2015-2016/Chelsea_2-2_Swansea/1",
+    "cut_frame": 440,
+    "decision": "approved"
+  },
+  "2015-2016/Chelsea_2-2_Swansea/1::26": {
+    "key": "2015-2016/Chelsea_2-2_Swansea/1::26",
+    "half_key": "2015-2016/Chelsea_2-2_Swansea/1",
+    "cut_frame": 471,
+    "decision": "approved"
+  },
+  "2015-2016/Chelsea_2-2_Swansea/1::27": {
+    "key": "2015-2016/Chelsea_2-2_Swansea/1::27",
+    "half_key": "2015-2016/Chelsea_2-2_Swansea/1",
+    "cut_frame": 472,
+    "decision": "rejected"
+  },
+  "2015-2016/Chelsea_2-2_Swansea/1::28": {
+    "key": "2015-2016/Chelsea_2-2_Swansea/1::28",
+    "half_key": "2015-2016/Chelsea_2-2_Swansea/1",
+    "cut_frame": 479,
+    "decision": "rejected"
+  },
+  "2015-2016/Chelsea_2-2_Swansea/1::29": {
+    "key": "2015-2016/Chelsea_2-2_Swansea/1::29",
+    "half_key": "2015-2016/Chelsea_2-2_Swansea/1",
+    "cut_frame": 486,
+    "decision": "rejected"
+  },
+  "2015-2016/Chelsea_2-2_Swansea/1::30": {
+    "key": "2015-2016/Chelsea_2-2_Swansea/1::30",
+    "half_key": "2015-2016/Chelsea_2-2_Swansea/1",
+    "cut_frame": 488,
+    "decision": "rejected"
+  },
+  "2015-2016/Chelsea_2-2_Swansea/1::31": {
+    "key": "2015-2016/Chelsea_2-2_Swansea/1::31",
+    "half_key": "2015-2016/Chelsea_2-2_Swansea/1",
+    "cut_frame": 500,
+    "decision": "rejected"
+  },
+  "2015-2016/Chelsea_2-2_Swansea/1::32": {
+    "key": "2015-2016/Chelsea_2-2_Swansea/1::32",
+    "half_key": "2015-2016/Chelsea_2-2_Swansea/1",
+    "cut_frame": 501,
+    "decision": "rejected"
+  },
+  "2015-2016/Chelsea_2-2_Swansea/1::33": {
+    "key": "2015-2016/Chelsea_2-2_Swansea/1::33",
+    "half_key": "2015-2016/Chelsea_2-2_Swansea/1",
+    "cut_frame": 502,
+    "decision": "rejected"
+  },
+  "2015-2016/Chelsea_2-2_Swansea/1::34": {
+    "key": "2015-2016/Chelsea_2-2_Swansea/1::34",
+    "half_key": "2015-2016/Chelsea_2-2_Swansea/1",
+    "cut_frame": 518,
+    "decision": "approved"
+  },
+  "2015-2016/Chelsea_2-2_Swansea/1::35": {
+    "key": "2015-2016/Chelsea_2-2_Swansea/1::35",
+    "half_key": "2015-2016/Chelsea_2-2_Swansea/1",
+    "cut_frame": 541,
+    "decision": "rejected"
+  },
+  "2015-2016/Chelsea_2-2_Swansea/1::36": {
+    "key": "2015-2016/Chelsea_2-2_Swansea/1::36",
+    "half_key": "2015-2016/Chelsea_2-2_Swansea/1",
+    "cut_frame": 542,
+    "decision": "rejected"
+  },
+  "2015-2016/Chelsea_2-2_Swansea/1::37": {
+    "key": "2015-2016/Chelsea_2-2_Swansea/1::37",
+    "half_key": "2015-2016/Chelsea_2-2_Swansea/1",
+    "cut_frame": 543,
+    "decision": "rejected"
+  },
+  "2015-2016/Chelsea_2-2_Swansea/1::38": {
+    "key": "2015-2016/Chelsea_2-2_Swansea/1::38",
+    "half_key": "2015-2016/Chelsea_2-2_Swansea/1",
+    "cut_frame": 544,
+    "decision": "rejected"
+  },
+  "2015-2016/Chelsea_2-2_Swansea/1::39": {
+    "key": "2015-2016/Chelsea_2-2_Swansea/1::39",
+    "half_key": "2015-2016/Chelsea_2-2_Swansea/1",
+    "cut_frame": 545,
+    "decision": "rejected"
+  },
+  "2015-2016/Chelsea_2-2_Swansea/1::40": {
+    "key": "2015-2016/Chelsea_2-2_Swansea/1::40",
+    "half_key": "2015-2016/Chelsea_2-2_Swansea/1",
+    "cut_frame": 546,
+    "decision": "rejected"
+  },
+  "2015-2016/Chelsea_2-2_Swansea/1::41": {
+    "key": "2015-2016/Chelsea_2-2_Swansea/1::41",
+    "half_key": "2015-2016/Chelsea_2-2_Swansea/1",
+    "cut_frame": 547,
+    "decision": "rejected"
+  },
+  "2015-2016/Chelsea_2-2_Swansea/1::42": {
+    "key": "2015-2016/Chelsea_2-2_Swansea/1::42",
+    "half_key": "2015-2016/Chelsea_2-2_Swansea/1",
+    "cut_frame": 551,
+    "decision": "rejected"
+  },
+  "2015-2016/Chelsea_2-2_Swansea/1::43": {
+    "key": "2015-2016/Chelsea_2-2_Swansea/1::43",
+    "half_key": "2015-2016/Chelsea_2-2_Swansea/1",
+    "cut_frame": 552,
+    "decision": "rejected"
+  },
+  "2015-2016/Chelsea_2-2_Swansea/1::44": {
+    "key": "2015-2016/Chelsea_2-2_Swansea/1::44",
+    "half_key": "2015-2016/Chelsea_2-2_Swansea/1",
+    "cut_frame": 553,
+    "decision": "rejected"
+  },
+  "2015-2016/Chelsea_2-2_Swansea/1::45": {
+    "key": "2015-2016/Chelsea_2-2_Swansea/1::45",
+    "half_key": "2015-2016/Chelsea_2-2_Swansea/1",
+    "cut_frame": 558,
+    "decision": "rejected"
+  },
+  "2015-2016/Chelsea_2-2_Swansea/1::46": {
+    "key": "2015-2016/Chelsea_2-2_Swansea/1::46",
+    "half_key": "2015-2016/Chelsea_2-2_Swansea/1",
+    "cut_frame": 559,
+    "decision": "rejected"
+  },
+  "2015-2016/Chelsea_2-2_Swansea/1::47": {
+    "key": "2015-2016/Chelsea_2-2_Swansea/1::47",
+    "half_key": "2015-2016/Chelsea_2-2_Swansea/1",
+    "cut_frame": 573,
+    "decision": "rejected"
+  },
+  "2015-2016/Chelsea_2-2_Swansea/1::48": {
+    "key": "2015-2016/Chelsea_2-2_Swansea/1::48",
+    "half_key": "2015-2016/Chelsea_2-2_Swansea/1",
+    "cut_frame": 619,
+    "decision": "approved"
+  },
+  "2015-2016/Chelsea_2-2_Swansea/1::49": {
+    "key": "2015-2016/Chelsea_2-2_Swansea/1::49",
+    "half_key": "2015-2016/Chelsea_2-2_Swansea/1",
+    "cut_frame": 621,
+    "decision": "approved"
+  },
+  "2015-2016/Chelsea_2-2_Swansea/1::50": {
+    "key": "2015-2016/Chelsea_2-2_Swansea/1::50",
+    "half_key": "2015-2016/Chelsea_2-2_Swansea/1",
+    "cut_frame": 622,
+    "decision": "approved"
+  },
+  "2015-2016/Chelsea_2-2_Swansea/1::51": {
+    "key": "2015-2016/Chelsea_2-2_Swansea/1::51",
+    "half_key": "2015-2016/Chelsea_2-2_Swansea/1",
+    "cut_frame": 624,
+    "decision": "rejected"
+  },
+  "2015-2016/Chelsea_2-2_Swansea/1::52": {
+    "key": "2015-2016/Chelsea_2-2_Swansea/1::52",
+    "half_key": "2015-2016/Chelsea_2-2_Swansea/1",
+    "cut_frame": 630,
+    "decision": "rejected"
+  },
+  "2015-2016/Chelsea_2-2_Swansea/1::53": {
+    "key": "2015-2016/Chelsea_2-2_Swansea/1::53",
+    "half_key": "2015-2016/Chelsea_2-2_Swansea/1",
+    "cut_frame": 631,
+    "decision": "rejected"
+  },
+  "2015-2016/Chelsea_2-2_Swansea/1::54": {
+    "key": "2015-2016/Chelsea_2-2_Swansea/1::54",
+    "half_key": "2015-2016/Chelsea_2-2_Swansea/1",
+    "cut_frame": 632,
+    "decision": "rejected"
+  },
+  "2015-2016/Chelsea_2-2_Swansea/1::55": {
+    "key": "2015-2016/Chelsea_2-2_Swansea/1::55",
+    "half_key": "2015-2016/Chelsea_2-2_Swansea/1",
+    "cut_frame": 634,
+    "decision": "rejected"
+  },
+  "2015-2016/Chelsea_2-2_Swansea/1::56": {
+    "key": "2015-2016/Chelsea_2-2_Swansea/1::56",
+    "half_key": "2015-2016/Chelsea_2-2_Swansea/1",
+    "cut_frame": 691,
+    "decision": "rejected"
+  },
+  "2015-2016/Chelsea_2-2_Swansea/1::57": {
+    "key": "2015-2016/Chelsea_2-2_Swansea/1::57",
+    "half_key": "2015-2016/Chelsea_2-2_Swansea/1",
+    "cut_frame": 696,
+    "decision": "rejected"
+  },
+  "2015-2016/Chelsea_2-2_Swansea/1::58": {
+    "key": "2015-2016/Chelsea_2-2_Swansea/1::58",
+    "half_key": "2015-2016/Chelsea_2-2_Swansea/1",
+    "cut_frame": 704,
+    "decision": "rejected"
+  },
+  "2015-2016/Chelsea_2-2_Swansea/1::59": {
+    "key": "2015-2016/Chelsea_2-2_Swansea/1::59",
+    "half_key": "2015-2016/Chelsea_2-2_Swansea/1",
+    "cut_frame": 714,
+    "decision": "rejected"
+  },
+  "2015-2016/Chelsea_2-2_Swansea/1::60": {
+    "key": "2015-2016/Chelsea_2-2_Swansea/1::60",
+    "half_key": "2015-2016/Chelsea_2-2_Swansea/1",
+    "cut_frame": 741,
+    "decision": "approved"
+  },
+  "2015-2016/Chelsea_2-2_Swansea/1::61": {
+    "key": "2015-2016/Chelsea_2-2_Swansea/1::61",
+    "half_key": "2015-2016/Chelsea_2-2_Swansea/1",
+    "cut_frame": 742,
+    "decision": "approved"
+  },
+  "2015-2016/Chelsea_2-2_Swansea/1::62": {
+    "key": "2015-2016/Chelsea_2-2_Swansea/1::62",
+    "half_key": "2015-2016/Chelsea_2-2_Swansea/1",
+    "cut_frame": 746,
+    "decision": "approved"
+  },
+  "2015-2016/Chelsea_2-2_Swansea/1::63": {
+    "key": "2015-2016/Chelsea_2-2_Swansea/1::63",
+    "half_key": "2015-2016/Chelsea_2-2_Swansea/1",
+    "cut_frame": 748,
+    "decision": "approved"
+  },
+  "2015-2016/Chelsea_2-2_Swansea/1::64": {
+    "key": "2015-2016/Chelsea_2-2_Swansea/1::64",
+    "half_key": "2015-2016/Chelsea_2-2_Swansea/1",
+    "cut_frame": 782,
+    "decision": "rejected"
+  },
+  "2015-2016/Chelsea_2-2_Swansea/1::65": {
+    "key": "2015-2016/Chelsea_2-2_Swansea/1::65",
+    "half_key": "2015-2016/Chelsea_2-2_Swansea/1",
+    "cut_frame": 783,
+    "decision": "rejected"
+  },
+  "2015-2016/Chelsea_2-2_Swansea/1::66": {
+    "key": "2015-2016/Chelsea_2-2_Swansea/1::66",
+    "half_key": "2015-2016/Chelsea_2-2_Swansea/1",
+    "cut_frame": 807,
+    "decision": "rejected"
+  },
+  "2015-2016/Chelsea_2-2_Swansea/1::67": {
+    "key": "2015-2016/Chelsea_2-2_Swansea/1::67",
+    "half_key": "2015-2016/Chelsea_2-2_Swansea/1",
+    "cut_frame": 809,
+    "decision": "rejected"
+  },
+  "2015-2016/Chelsea_2-2_Swansea/1::68": {
+    "key": "2015-2016/Chelsea_2-2_Swansea/1::68",
+    "half_key": "2015-2016/Chelsea_2-2_Swansea/1",
+    "cut_frame": 815,
+    "decision": "rejected"
+  },
+  "2015-2016/Chelsea_2-2_Swansea/1::69": {
+    "key": "2015-2016/Chelsea_2-2_Swansea/1::69",
+    "half_key": "2015-2016/Chelsea_2-2_Swansea/1",
+    "cut_frame": 841,
+    "decision": "rejected"
+  },
+  "2015-2016/Chelsea_2-2_Swansea/1::70": {
+    "key": "2015-2016/Chelsea_2-2_Swansea/1::70",
+    "half_key": "2015-2016/Chelsea_2-2_Swansea/1",
+    "cut_frame": 845,
+    "decision": "rejected"
+  },
+  "2015-2016/Chelsea_2-2_Swansea/1::71": {
+    "key": "2015-2016/Chelsea_2-2_Swansea/1::71",
+    "half_key": "2015-2016/Chelsea_2-2_Swansea/1",
+    "cut_frame": 846,
+    "decision": "rejected"
+  },
+  "2015-2016/Chelsea_2-2_Swansea/1::72": {
+    "key": "2015-2016/Chelsea_2-2_Swansea/1::72",
+    "half_key": "2015-2016/Chelsea_2-2_Swansea/1",
+    "cut_frame": 849,
+    "decision": "rejected"
+  },
+  "2015-2016/Chelsea_2-2_Swansea/1::73": {
+    "key": "2015-2016/Chelsea_2-2_Swansea/1::73",
+    "half_key": "2015-2016/Chelsea_2-2_Swansea/1",
+    "cut_frame": 850,
+    "decision": "rejected"
+  },
+  "2015-2016/Chelsea_2-2_Swansea/1::74": {
+    "key": "2015-2016/Chelsea_2-2_Swansea/1::74",
+    "half_key": "2015-2016/Chelsea_2-2_Swansea/1",
+    "cut_frame": 855,
+    "decision": "rejected"
+  },
+  "2015-2016/Chelsea_2-2_Swansea/1::75": {
+    "key": "2015-2016/Chelsea_2-2_Swansea/1::75",
+    "half_key": "2015-2016/Chelsea_2-2_Swansea/1",
+    "cut_frame": 856,
+    "decision": "rejected"
+  },
+  "2015-2016/Chelsea_2-2_Swansea/1::76": {
+    "key": "2015-2016/Chelsea_2-2_Swansea/1::76",
+    "half_key": "2015-2016/Chelsea_2-2_Swansea/1",
+    "cut_frame": 916,
+    "decision": "approved"
+  },
+  "2015-2016/Chelsea_2-2_Swansea/1::77": {
+    "key": "2015-2016/Chelsea_2-2_Swansea/1::77",
+    "half_key": "2015-2016/Chelsea_2-2_Swansea/1",
+    "cut_frame": 1015,
+    "decision": "approved"
+  },
+  "2015-2016/Chelsea_2-2_Swansea/1::78": {
+    "key": "2015-2016/Chelsea_2-2_Swansea/1::78",
+    "half_key": "2015-2016/Chelsea_2-2_Swansea/1",
+    "cut_frame": 1019,
+    "decision": "rejected"
+  },
+  "2015-2016/Chelsea_2-2_Swansea/1::79": {
+    "key": "2015-2016/Chelsea_2-2_Swansea/1::79",
+    "half_key": "2015-2016/Chelsea_2-2_Swansea/1",
+    "cut_frame": 1035,
+    "decision": "approved"
+  },
+  "2015-2016/Chelsea_2-2_Swansea/1::80": {
+    "key": "2015-2016/Chelsea_2-2_Swansea/1::80",
+    "half_key": "2015-2016/Chelsea_2-2_Swansea/1",
+    "cut_frame": 1040,
+    "decision": "approved"
+  },
+  "2015-2016/Chelsea_2-2_Swansea/1::81": {
+    "key": "2015-2016/Chelsea_2-2_Swansea/1::81",
+    "half_key": "2015-2016/Chelsea_2-2_Swansea/1",
+    "cut_frame": 1041,
+    "decision": "approved"
+  },
+  "2015-2016/Chelsea_2-2_Swansea/1::82": {
+    "key": "2015-2016/Chelsea_2-2_Swansea/1::82",
+    "half_key": "2015-2016/Chelsea_2-2_Swansea/1",
+    "cut_frame": 1048,
+    "decision": "approved"
+  }
+}
