@@ -58,41 +58,47 @@ class GradCAM:
         img_a: torch.Tensor,
         img_b: torch.Tensor,
         target: str = "a",   # "a" or "b" — which frame to attribute
+        img_a_nbr: Optional[torch.Tensor] = None,
+        img_b_nbr: Optional[torch.Tensor] = None,
     ) -> tuple[np.ndarray, np.ndarray]:
         """
         Args:
-            img_a, img_b: (1, C, H, W) tensors (single pair, with grad)
+            img_a, img_b:         (1, C, H, W) tensors
+            img_a_nbr, img_b_nbr: temporal neighbors; defaults to the other frame
             target: 'a' or 'b' selects which input to attribute the logit to
 
         Returns:
             (saliency_a, saliency_b): each (H', W') numpy array in [0, 1]
-                                      where H', W' match the input spatial dims
         """
+        if img_a_nbr is None:
+            img_a_nbr = img_b
+        if img_b_nbr is None:
+            img_b_nbr = img_a
+
         img_a = img_a.requires_grad_(True)
         img_b = img_b.requires_grad_(True)
 
-        # Forward through the chosen frame first so hooks fire for it
         if target == "a":
             self.model.zero_grad()
-            logit = self.model(img_a, img_b)
+            logit = self.model(img_a, img_a_nbr, img_b, img_b_nbr)
             logit.backward()
             cam_a = self._compute_cam()
             cam_a = self._resize(cam_a, img_a.shape[-2:])
 
             self.model.zero_grad()
-            logit = self.model(img_b, img_a)   # flip order for img_b attribution
+            logit = self.model(img_b, img_b_nbr, img_a, img_a_nbr)
             logit.backward()
             cam_b = self._compute_cam()
             cam_b = self._resize(cam_b, img_b.shape[-2:])
         else:
             self.model.zero_grad()
-            logit = self.model(img_b, img_a)
+            logit = self.model(img_b, img_b_nbr, img_a, img_a_nbr)
             logit.backward()
             cam_b = self._compute_cam()
             cam_b = self._resize(cam_b, img_b.shape[-2:])
 
             self.model.zero_grad()
-            logit = self.model(img_a, img_b)
+            logit = self.model(img_a, img_a_nbr, img_b, img_b_nbr)
             logit.backward()
             cam_a = self._compute_cam()
             cam_a = self._resize(cam_a, img_a.shape[-2:])

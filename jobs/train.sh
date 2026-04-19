@@ -22,19 +22,19 @@ echo "GPU: $(nvidia-smi --query-gpu=name --format=csv,noheader)"
 python train.py \
     --frames_root     frames \
     --cuts_json       cuts.json \
-    --encoder         resnet50 \
+    --encoder         vit_small_patch16_224_dino \
     --embed_dim       256 \
     --hidden_dim      512 \
     --dropout         0.3 \
     --epochs          30 \
     --batch_size      128 \
     --lr              1e-4 \
-    --window_size     10 \
-    --n_windows_per_cut 20 \
+    --cut_radius      5 \
     --val_fraction    0.1 \
     --num_workers     4 \
     --tau_n_seq       100 \
     --tau_seq_len     30 \
-    --out             checkpoints/resnet50_cutwindow
+    --data_fraction   0.1 \
+    --out             checkpoints/dino_vits16_cutwindow
 
 echo "=== Done ==="

@@ -53,11 +53,35 @@ def border_color(error: int) -> str:
     return "green" if error == 0 else ("orange" if error <= 2 else "red")
 
 
-def load_sequence(frames_dir: Path, n_frames: int, rng: random.Random):
-    """Pick a random contiguous clip of n_frames from frames_dir."""
+def load_sequence(frames_dir: Path, n_frames: int, rng: random.Random,
+                  cut_indices: list[int] | None = None, cut_radius: int = 5):
+    """
+    Pick a clip of n_frames centred on a cut so the sequence spans a scene
+    boundary — matching the training distribution.  Falls back to a random
+    clip when no suitable cut exists.
+    """
     all_frames = sorted(frames_dir.glob("*.jpg"))
     if len(all_frames) < n_frames:
         return None
+
+    if cut_indices:
+        stems = [int(f.stem) for f in all_frames]
+        # Keep cuts that leave room for n_frames centred on them
+        valid_cuts = []
+        for c in cut_indices:
+            try:
+                pos = stems.index(c)
+            except ValueError:
+                pos = min(range(len(stems)), key=lambda i: abs(stems[i] - c))
+            half = n_frames // 2
+            if pos >= half and pos + (n_frames - half) <= len(all_frames):
+                valid_cuts.append(pos)
+        if valid_cuts:
+            pos = rng.choice(valid_cuts)
+            half = n_frames // 2
+            start = pos - half
+            return all_frames[start : start + n_frames]
+
     start = rng.randint(0, len(all_frames) - n_frames)
     return all_frames[start : start + n_frames]
 
@@ -220,11 +244,14 @@ def main(args):
         seed = args.seed + sample_idx
         rng = random.Random(seed)
 
-        # Pick a random half with enough frames
+        # Pick a sequence that spans a cut (matches training distribution)
         for _ in range(50):
             key = rng.choice(keys)
             frames_dir = Path("frames") / key
-            frame_paths = load_sequence(frames_dir, args.seq_len, rng)
+            frame_paths = load_sequence(
+                frames_dir, args.seq_len, rng,
+                cut_indices=cuts_map[key], cut_radius=5,
+            )
             if frame_paths is not None:
                 break
         else:
@@ -244,8 +271,8 @@ def main(args):
 
         # Rank
         with torch.no_grad():
-            score_mat = model.score_matrix(shuffled_tensor).cpu().numpy()
-            predicted_rank = model.rank_frames(shuffled_tensor).cpu().tolist()
+            score_mat     = model.score_matrix(shuffled_tensor, shuffled_tensor).cpu().numpy()
+            predicted_rank = model.rank_frames(shuffled_tensor, shuffled_tensor).cpu().tolist()
 
         # Kendall's tau
         true_positions = [shuffled_order[r] for r in predicted_rank]
@@ -257,19 +284,22 @@ def main(args):
         pred_tensor = shuffled_tensor[predicted_rank]
 
         # GradCAM for consecutive pairs in predicted order
+        pred_nbrs = pred_tensor[torch.clamp(torch.arange(n) + 1, max=n - 1)]
         gradcam = GradCAM(model, target_layer="encoder.layer4")
         cams_order = []      # cam_a for ordering figure (one per predicted position)
         cams_pairs_a = []    # cam_a for pairs figure
         cams_pairs_b = []    # cam_b for pairs figure
 
         for k in range(n):
-            ta = pred_tensor[k].unsqueeze(0)
-            tb = pred_tensor[min(k + 1, n - 1)].unsqueeze(0)
-            cam_a, cam_b = gradcam(ta, tb, target="a")
+            ta     = pred_tensor[k].unsqueeze(0)
+            ta_nbr = pred_nbrs[k].unsqueeze(0)
+            tb     = pred_tensor[min(k + 1, n - 1)].unsqueeze(0)
+            tb_nbr = pred_nbrs[min(k + 1, n - 1)].unsqueeze(0)
+            cam_a, cam_b = gradcam(ta, tb, target="a", img_a_nbr=ta_nbr, img_b_nbr=tb_nbr)
             cams_order.append(cam_a)
             if k < n - 1:
                 cams_pairs_a.append(cam_a)
-                _, cam_b2 = gradcam(ta, tb, target="b")
+                _, cam_b2 = gradcam(ta, tb, target="b", img_a_nbr=ta_nbr, img_b_nbr=tb_nbr)
                 cams_pairs_b.append(cam_b2)
 
         gradcam.remove_hooks()
@@ -294,5 +324,5 @@ if __name__ == "__main__":
     p.add_argument("--n_samples", type=int, default=5)
     p.add_argument("--seq_len",   type=int, default=12)
     p.add_argument("--seed",      type=int, default=42)
-    p.add_argument("--out",       default="viz_inference")
+    p.add_argument("--out",       default="viz_inference2")
     main(p.parse_args())

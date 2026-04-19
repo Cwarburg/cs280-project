@@ -1,13 +1,9 @@
 """
-CutWindowDataset: samples 10-frame windows that always straddle a camera cut.
+CutWindowDataset: builds pairs from frames within a fixed radius of each cut.
 
-For each window all C(10,2)=45 pairs are generated with temporal labels.
-Every pair either:
-  - crosses the cut  → high visual contrast, unambiguous temporal signal
-  - stays within one scene → subtle but correctly labelled
-
-This avoids the problem of nearly-identical within-shot pairs sampled far
-from any cut, where the model has no meaningful signal to learn from.
+For each cut, the cut_radius frames before and cut_radius frames after are used
+(2 * cut_radius frames per cut). All C(2R, 2) pairs are generated with temporal
+labels, giving a clean signal concentrated around scene boundaries.
 """
 import json
 import random
@@ -61,24 +57,21 @@ def get_transform(train: bool, size: int = 224) -> transforms.Compose:
 class CutWindowDataset(Dataset):
     """
     Args:
-        frames_root:       root directory containing per-half frame folders
-        cuts_json:         JSON mapping relative_path → list of cut frame indices
-        window_size:       total frames per window (default 10)
-        n_windows_per_cut: how many different windows to sample per cut
-        min_scene_frames:  minimum frames required on each side of the cut
-        train:             whether to apply training augmentations
-        seed:              random seed
+        frames_root: root directory containing per-half frame folders
+        cuts_json:   JSON mapping relative_path → list of cut frame indices
+        cut_radius:  number of frames to take from each side of the cut (default 5)
+        train:       whether to apply training augmentations
+        seed:        random seed for pair shuffling
     """
 
     def __init__(
         self,
         frames_root: Path,
         cuts_json: Path,
-        window_size: int = 10,
-        n_windows_per_cut: int = 20,
-        min_scene_frames: int = 2,
+        cut_radius: int = 5,
         train: bool = True,
         seed: int = 42,
+        cross_cut_weight: float = 0.5,
     ):
         self.frames_root = Path(frames_root)
         self.transform   = get_transform(train)
@@ -87,12 +80,7 @@ class CutWindowDataset(Dataset):
         with open(cuts_json) as f:
             cuts_map: dict[str, list[int]] = json.load(f)
 
-        # Each entry: list of frame paths for one window (in temporal order)
-        # We store path lists; pairs are generated on the fly in __getitem__
-        # to keep memory low — but we pre-build the pair index here.
-        #
-        # pairs: list of (path_a, path_b, label)
-        self.pairs: list[tuple[Path, Path, int]] = []
+        self.pairs: list[tuple[Path, Path, Path, Path, int, float]] = []
 
         n_cross  = 0
         n_within = 0
@@ -102,61 +90,51 @@ class CutWindowDataset(Dataset):
             all_frames = sorted(half_dir.glob("*.jpg"))
             n = len(all_frames)
 
-            if n < window_size + 2:
+            if n < cut_radius * 2 + 1:
                 continue
 
+            stems = [int(f.stem) for f in all_frames]
+
             for cut_frame_no in cut_indices:
-                # Find position of this cut in the sorted frame list
-                stems = [int(f.stem) for f in all_frames]
                 try:
                     cut_pos = stems.index(cut_frame_no)
                 except ValueError:
                     cut_pos = min(range(n), key=lambda i: abs(stems[i] - cut_frame_no))
 
-                # Need at least min_scene_frames on each side
-                if cut_pos < min_scene_frames or cut_pos >= n - min_scene_frames:
+                if cut_pos < cut_radius or cut_pos + cut_radius >= n:
                     continue
 
-                for _ in range(n_windows_per_cut):
-                    # Randomly pick how many frames come from scene 1 vs scene 2.
-                    # Scene 1 gets between min_scene_frames and
-                    # window_size - min_scene_frames frames.
-                    n_before = rng.randint(
-                        min_scene_frames,
-                        min(window_size - min_scene_frames, cut_pos),
-                    )
-                    n_after  = window_size - n_before
-                    n_after  = min(n_after, n - cut_pos - 1)
-                    if n_after < min_scene_frames:
-                        continue
+                before = all_frames[cut_pos - cut_radius : cut_pos]
+                after  = all_frames[cut_pos + 1 : cut_pos + 1 + cut_radius]
+                window = before + after
 
-                    # Sample contiguous frames from each scene ending/starting at cut
-                    before_start = cut_pos - n_before
-                    after_end    = cut_pos + n_after  # exclusive
+                for i, j in combinations(range(len(window)), 2):
+                    i_side = 0 if i < cut_radius else 1
+                    j_side = 0 if j < cut_radius else 1
+                    is_cross = i_side != j_side
 
-                    window_paths = all_frames[before_start : cut_pos] + \
-                                   all_frames[cut_pos + 1 : after_end + 1]
+                    if is_cross:
+                        n_cross += 1
+                        weight = cross_cut_weight
+                    else:
+                        n_within += 1
+                        weight = 1.0
 
-                    if len(window_paths) < 2:
-                        continue
+                    # clamp neighbors within their own side of the cut
+                    if i < cut_radius:
+                        i_nbr = i + 1 if i + 1 < cut_radius else i - 1
+                    else:
+                        i_nbr = i + 1 if i + 1 < len(window) else i - 1
+                    if j < cut_radius:
+                        j_nbr = j + 1 if j + 1 < cut_radius else j - 1
+                    else:
+                        j_nbr = j + 1 if j + 1 < len(window) else j - 1
 
-                    # Generate all pairs within this window
-                    # Temporal position = index in window_paths
-                    for i, j in combinations(range(len(window_paths)), 2):
-                        # i < j always (combinations are ordered)
-                        label = 1  # i comes before j
-                        if rng.random() < 0.5:
-                            i, j = j, i
-                            label = 0
-                        self.pairs.append((window_paths[i], window_paths[j], label))
-
-                        # Track cross vs within for stats
-                        if i < n_before and j >= n_before:
-                            n_cross += 1
-                        elif j < n_before and i >= n_before:
-                            n_cross += 1
-                        else:
-                            n_within += 1
+                    label = 1
+                    if rng.random() < 0.5:
+                        i, j, i_nbr, j_nbr = j, i, j_nbr, i_nbr
+                        label = 0
+                    self.pairs.append((window[i], window[i_nbr], window[j], window[j_nbr], label, weight))
 
         rng.shuffle(self.pairs)
         self.n_cross  = n_cross
@@ -166,7 +144,11 @@ class CutWindowDataset(Dataset):
         return len(self.pairs)
 
     def __getitem__(self, idx: int):
-        path_a, path_b, label = self.pairs[idx]
-        img_a = Image.open(path_a).convert("RGB")
-        img_b = Image.open(path_b).convert("RGB")
-        return self.transform(img_a), self.transform(img_b), torch.tensor(label, dtype=torch.float32)
+        path_a, path_a_nbr, path_b, path_b_nbr, label, weight = self.pairs[idx]
+        img_a     = self.transform(Image.open(path_a).convert("RGB"))
+        img_a_nbr = self.transform(Image.open(path_a_nbr).convert("RGB"))
+        img_b     = self.transform(Image.open(path_b).convert("RGB"))
+        img_b_nbr = self.transform(Image.open(path_b_nbr).convert("RGB"))
+        return (img_a, img_a_nbr, img_b, img_b_nbr,
+                torch.tensor(label, dtype=torch.float32),
+                torch.tensor(weight, dtype=torch.float32))

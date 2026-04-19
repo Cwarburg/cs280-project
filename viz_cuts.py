@@ -1,108 +1,93 @@
 """
-Visualize detected cuts: for each sampled cut, show frame[i] and frame[i+1].
-Also plots the full histogram-difference signal with cut positions marked.
+Visualize detected cuts: for each sampled cut show the frame before,
+the cut frame, and the frame after.
 
 Usage:
-    python viz_cuts.py --frames_root frames/test --cuts_json cuts.json \
-                       --key 1 --n_sample 20 --out cuts_viz/
+    python viz_cuts.py --frames_root frames --cuts_json cuts.json \
+                       --n_sample 30 --out cuts_viz/cut_triplets.png
 """
 import argparse
 import json
+import random
 import numpy as np
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from pathlib import Path
 from PIL import Image
-from scene_detect import hist_diff
 
 
-def plot_diff_signal(frames: list[Path], cuts: list[int], out_path: Path, threshold: float):
-    print("Computing diff signal (this may take a minute)...")
-    diffs = []
-    prev = np.array(Image.open(frames[0]).convert("RGB"))
-    for path in frames[1:]:
-        curr = np.array(Image.open(path).convert("RGB"))
-        diffs.append(hist_diff(prev, curr))
-        prev = curr
-
-    fig, ax = plt.subplots(figsize=(18, 4))
-    ax.plot(diffs, lw=0.6, color="steelblue", label="hist diff")
-    ax.axhline(threshold, color="red", lw=1, linestyle="--", label=f"threshold={threshold}")
-    for c in cuts:
-        ax.axvline(c, color="orange", lw=0.4, alpha=0.6)
-    ax.set_xlabel("Frame index")
-    ax.set_ylabel("Histogram difference")
-    ax.set_title(f"Scene-cut signal  —  {len(cuts)} cuts detected")
-    ax.legend()
-    plt.tight_layout()
-    plt.savefig(out_path, dpi=150)
-    plt.close()
-    print(f"Saved diff signal → {out_path}")
+def load_frames(frames_root: Path, key: str) -> list[Path]:
+    return sorted((frames_root / key).glob("*.jpg"))
 
 
-def plot_cut_pairs(frames: list[Path], cuts: list[int], n_sample: int, out_path: Path):
-    import random
-    rng = random.Random(0)
-    sample = rng.sample(cuts, min(n_sample, len(cuts)))
-    sample.sort()
+def plot_triplets(samples: list[tuple], out_path: Path):
+    """
+    samples: list of (key, cut_idx, frames_list)
+    Layout: one row per cut, 3 columns (before / cut / after)
+    """
+    n = len(samples)
+    fig, axes = plt.subplots(n, 3, figsize=(9, n * 2.2))
+    if n == 1:
+        axes = axes[np.newaxis, :]
 
-    # Layout: 2 cuts per row, each cut takes 2 columns (before + after)
-    n_cols = 4
-    n_rows = (len(sample) + 1) // 2
-    fig, axes = plt.subplots(n_rows, n_cols, figsize=(n_cols * 3, n_rows * 2.5))
-    axes = np.array(axes).reshape(-1, n_cols)
+    col_labels = ["before", "cut", "after"]
 
-    for idx, cut in enumerate(sample):
-        row = idx // 2
-        col_offset = (idx % 2) * 2
+    for row, (key, cut, frames) in enumerate(samples):
+        idxs = [max(cut - 1, 0), cut, min(cut + 1, len(frames) - 1)]
+        for col, fi in enumerate(idxs):
+            img = Image.open(frames[fi]).convert("RGB")
+            axes[row, col].imshow(img)
+            axes[row, col].axis("off")
+            title = f"{col_labels[col]}  #{fi}"
+            if col == 1:
+                axes[row, col].set_title(title, fontsize=6, color="red", fontweight="bold")
+            else:
+                axes[row, col].set_title(title, fontsize=6)
 
-        img_before = Image.open(frames[cut]).convert("RGB")
-        img_after  = Image.open(frames[cut + 1]).convert("RGB") if cut + 1 < len(frames) else img_before
-        diff = hist_diff(np.array(img_before), np.array(img_after))
+        short_key = "/".join(key.split("/")[-2:])
+        axes[row, 0].set_ylabel(short_key, fontsize=5, rotation=0,
+                                labelpad=60, va="center")
 
-        axes[row, col_offset].imshow(img_before)
-        axes[row, col_offset].set_title(f"frame {cut}", fontsize=7)
-        axes[row, col_offset].axis("off")
-
-        axes[row, col_offset + 1].imshow(img_after)
-        axes[row, col_offset + 1].set_title(f"frame {cut+1}  Δ={diff:.3f}", fontsize=7)
-        axes[row, col_offset + 1].axis("off")
-
-    # Hide unused axes if n_sample is odd
-    if len(sample) % 2 == 1:
-        for c in range(2, n_cols):
-            axes[-1, c].axis("off")
-
-    fig.suptitle(f"Sample of {len(sample)} detected cuts (frame before → after)", fontsize=10)
+    fig.suptitle(f"{n} sampled cuts  —  before / cut / after", fontsize=11)
     plt.tight_layout()
     plt.savefig(out_path, dpi=150, bbox_inches="tight")
     plt.close()
-    print(f"Saved cut pairs → {out_path}")
+    print(f"Saved → {out_path}")
 
 
 def main():
     p = argparse.ArgumentParser()
-    p.add_argument("--frames_root", default="frames/test", type=Path)
-    p.add_argument("--cuts_json",   default="cuts.json",   type=Path)
-    p.add_argument("--key",         default="1",           help="Key in cuts_json")
-    p.add_argument("--threshold",   default=0.35,          type=float)
-    p.add_argument("--n_sample",    default=20,            type=int, help="Cuts to show in pair plot")
-    p.add_argument("--out",         default="cuts_viz",    type=Path)
+    p.add_argument("--frames_root", default="frames", type=Path)
+    p.add_argument("--cuts_json",   default="cuts.json", type=Path)
+    p.add_argument("--n_sample",    default=30, type=int)
+    p.add_argument("--seed",        default=0, type=int)
+    p.add_argument("--out",         default="cuts_viz/cut_triplets.png", type=Path)
     args = p.parse_args()
 
-    args.out.mkdir(parents=True, exist_ok=True)
+    args.out.parent.mkdir(parents=True, exist_ok=True)
 
     with open(args.cuts_json) as f:
         cuts_map = json.load(f)
 
-    cuts = cuts_map[args.key]
-    half_dir = args.frames_root / args.key
-    frames = sorted(half_dir.glob("*.jpg"))
-    print(f"Frames: {len(frames)},  Cuts: {len(cuts)}")
+    all_cuts = [(key, c) for key, cuts in cuts_map.items() for c in cuts]
+    print(f"Total cuts available: {len(all_cuts)}")
 
-    plot_diff_signal(frames, cuts, args.out / "diff_signal.png", args.threshold)
-    plot_cut_pairs(frames, cuts, args.n_sample, args.out / "cut_pairs.png")
+    rng = random.Random(args.seed)
+    chosen = rng.sample(all_cuts, min(args.n_sample, len(all_cuts)))
+    chosen.sort()
+
+    frame_cache = {}
+    samples = []
+    for key, cut in chosen:
+        if key not in frame_cache:
+            frame_cache[key] = load_frames(args.frames_root, key)
+        frames = frame_cache[key]
+        if cut < len(frames):
+            samples.append((key, cut, frames))
+
+    print(f"Plotting {len(samples)} cuts...")
+    plot_triplets(samples, args.out)
 
 
 if __name__ == "__main__":

@@ -37,6 +37,7 @@ import wandb
 from dataset import CutWindowDataset, get_transform
 from model import PairwiseOrderingModel
 from gradcam import GradCAM
+import torch.nn.functional as F
 
 
 # ---------------------------------------------------------------------------
@@ -91,7 +92,7 @@ def evaluate_kendall_tau(
         shuffled_tensor = frames_tensor[shuffled_order]
 
         with torch.no_grad():
-            predicted_rank = model.rank_frames(shuffled_tensor).cpu().tolist()
+            predicted_rank = model.rank_frames(shuffled_tensor, shuffled_tensor).cpu().tolist()
 
         rank_of_shuffled = [0] * seq_len
         for pos, sh_idx in enumerate(predicted_rank):
@@ -122,44 +123,28 @@ def _to_rgb(tensor: torch.Tensor) -> np.ndarray:
     return (img * 255).astype(np.uint8)
 
 
-def log_ordering_with_gradcam(
+def _render_ordering_gradcam(
     model: PairwiseOrderingModel,
     frames_root: Path,
-    cuts_json: Path,
+    cuts_map: dict,
+    transform,
     device: torch.device,
-    n_frames: int = 10,
-    target_layer: str = "encoder.layer4",
-    seed: int = 1,
-):
-    """
-    Sample a contiguous sequence of n_frames, shuffle, let the model sort it,
-    and log a single two-row figure to wandb:
-
-      Row 1 (GT):   frames in true temporal order, plain.
-      Row 2 (Pred): frames in model-predicted order, each with GradCAM overlaid.
-                    GradCAM for frame at predicted position k is computed w.r.t.
-                    the pair (frame_k, frame_{k+1}), showing what the model attends
-                    to when deciding frame_k precedes frame_{k+1}.
-                    Title shows predicted position and true position; border is
-                    green (exact), orange (off by 1-2), or red (off by 3+).
-    """
+    n_frames: int,
+    target_layer: str,
+    rng: random.Random,
+) -> "np.ndarray | None":
+    """Render one ordering+GradCAM figure and return as an RGB numpy array."""
     import matplotlib
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
     import matplotlib.cm as cm
     from PIL import Image
 
-    with open(cuts_json) as f:
-        cuts_map = json.load(f)
-
-    transform = get_transform(train=False)
-    rng = random.Random(seed)
     key = rng.choice(list(cuts_map.keys()))
     half_dir = frames_root / key
     all_frames = sorted(half_dir.glob("*.jpg"))
-
     if len(all_frames) < n_frames:
-        return
+        return None
 
     start = rng.randint(0, len(all_frames) - n_frames)
     imgs = [transform(Image.open(all_frames[start + i]).convert("RGB")) for i in range(n_frames)]
@@ -171,19 +156,18 @@ def log_ordering_with_gradcam(
 
     model.eval()
     with torch.no_grad():
-        predicted_rank = model.rank_frames(shuffled_tensor).cpu().tolist()
-    # predicted_rank[k] = index in shuffled_tensor placed at predicted position k
+        predicted_rank = model.rank_frames(shuffled_tensor, shuffled_tensor).cpu().tolist()
 
-    # Build ordered tensor: frames in predicted order
-    pred_tensor = shuffled_tensor[predicted_rank]  # (n, C, H, W)
+    pred_tensor = shuffled_tensor[predicted_rank]
+    pred_nbrs   = pred_tensor[torch.clamp(torch.arange(n_frames) + 1, max=n_frames - 1)]
 
-    # Compute GradCAM for each consecutive pair in predicted order
     gradcam = GradCAM(model, target_layer=target_layer)
     cams = []
     for k in range(n_frames):
-        ta = pred_tensor[k].unsqueeze(0)
-        tb = pred_tensor[min(k + 1, n_frames - 1)].unsqueeze(0)
-        cam_a, _ = gradcam(ta, tb, target="a")
+        ta, ta_nbr = pred_tensor[k].unsqueeze(0), pred_nbrs[k].unsqueeze(0)
+        tb_idx = min(k + 1, n_frames - 1)
+        tb, tb_nbr = pred_tensor[tb_idx].unsqueeze(0), pred_nbrs[tb_idx].unsqueeze(0)
+        cam_a, _ = gradcam(ta, tb, target="a", img_a_nbr=ta_nbr, img_b_nbr=tb_nbr)
         cams.append(cam_a)
     gradcam.remove_hooks()
 
@@ -192,22 +176,19 @@ def log_ordering_with_gradcam(
         return (rgb * 0.55 + heat * 0.45).astype(np.uint8)
 
     fig, axes = plt.subplots(2, n_frames, figsize=(n_frames * 2.2, 5))
-    fig.suptitle("Row 1: ground truth order  |  Row 2: predicted order + GradCAM", fontsize=9)
+    fig.suptitle("Row 1: ground truth  |  Row 2: predicted + GradCAM", fontsize=9)
 
     for i in range(n_frames):
-        # Top row: ground truth
         axes[0, i].imshow(_to_rgb(frames_tensor[i]))
         axes[0, i].set_title(f"GT {i+1}", fontsize=7)
         axes[0, i].axis("off")
 
-        # Bottom row: predicted order with GradCAM overlay
-        sh_idx = predicted_rank[i]
+        sh_idx   = predicted_rank[i]
         true_pos = shuffled_order[sh_idx]
-        error = abs(true_pos - i)
-        color = "green" if error == 0 else ("orange" if error <= 2 else "red")
+        error    = abs(true_pos - i)
+        color    = "green" if error == 0 else ("orange" if error <= 2 else "red")
 
-        rgb = _to_rgb(shuffled_tensor[sh_idx])
-        axes[1, i].imshow(overlay(rgb, cams[i]))
+        axes[1, i].imshow(overlay(_to_rgb(shuffled_tensor[sh_idx]), cams[i]))
         axes[1, i].set_title(f"Pred {i+1}\n(true {true_pos+1})", fontsize=7, color=color)
         for side in ["top", "bottom", "left", "right"]:
             axes[1, i].spines[side].set_visible(True)
@@ -220,8 +201,204 @@ def log_ordering_with_gradcam(
     buf = np.frombuffer(fig.canvas.buffer_rgba(), dtype=np.uint8)
     buf = buf.reshape(fig.canvas.get_width_height()[::-1] + (4,))[..., :3]
     plt.close(fig)
+    return buf
 
-    wandb.log({"viz/ordering_gradcam": wandb.Image(buf)})
+
+def log_ordering_with_gradcam(
+    model: PairwiseOrderingModel,
+    frames_root: Path,
+    cuts_json: Path,
+    device: torch.device,
+    n_frames: int = 10,
+    target_layer: str = "encoder.layer4",
+    seed: int = 1,
+    n_samples: int = 4,
+):
+    """Log n_samples ordering+GradCAM figures to wandb as an image panel."""
+    with open(cuts_json) as f:
+        cuts_map = json.load(f)
+
+    transform = get_transform(train=False)
+    rng = random.Random(seed)
+
+    images = []
+    for i in range(n_samples):
+        buf = _render_ordering_gradcam(
+            model, frames_root, cuts_map, transform, device,
+            n_frames, target_layer, rng,
+        )
+        if buf is not None:
+            images.append(wandb.Image(buf, caption=f"sample {i+1}"))
+
+    if images:
+        wandb.log({"viz/ordering_gradcam": images})
+
+
+# ---------------------------------------------------------------------------
+# Attention-map visualisation (ViT / DINO)
+# ---------------------------------------------------------------------------
+
+def _upsample_attn(attn_map: np.ndarray, size: tuple[int, int]) -> np.ndarray:
+    """Bilinear upsample a (H, W) attention map to `size` and return float32 [0,1]."""
+    from PIL import Image as PILImage
+    h, w = size
+    pil = PILImage.fromarray((attn_map * 255).astype(np.uint8)).resize((w, h), PILImage.BILINEAR)
+    arr = np.array(pil, dtype=np.float32) / 255.0
+    mn, mx = arr.min(), arr.max()
+    return (arr - mn) / (mx - mn + 1e-8)
+
+
+def _render_ordering_attention(
+    model: PairwiseOrderingModel,
+    cuts_map: dict,
+    frames_root: Path,
+    transform,
+    device: torch.device,
+    n_frames: int,
+    rng: random.Random,
+) -> "tuple[np.ndarray, np.ndarray] | tuple[None, None]":
+    """
+    Render one ordering figure (GT row + predicted row with mean-attention overlay)
+    and one attention-heads figure (all heads for the first predicted frame).
+    Returns (ordering_buf, heads_buf) as RGB uint8 arrays, or (None, None).
+    """
+    import matplotlib
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+    import matplotlib.cm as cm
+    from PIL import Image
+
+    key = rng.choice(list(cuts_map.keys()))
+    half_dir = frames_root / key
+    all_frames = sorted(half_dir.glob("*.jpg"))
+    if len(all_frames) < n_frames:
+        return None, None
+
+    start = rng.randint(0, len(all_frames) - n_frames)
+    imgs = [transform(Image.open(all_frames[start + i]).convert("RGB")) for i in range(n_frames)]
+    frames_tensor = torch.stack(imgs).to(device)
+
+    shuffled_order = list(range(n_frames))
+    rng.shuffle(shuffled_order)
+    shuffled_tensor = frames_tensor[shuffled_order]
+
+    model.eval()
+    with torch.no_grad():
+        predicted_rank = model.rank_frames(shuffled_tensor, shuffled_tensor).cpu().tolist()
+
+    pred_tensor = shuffled_tensor[predicted_rank]  # (n, C, H, W)
+    H, W = pred_tensor.shape[-2], pred_tensor.shape[-1]
+
+    # Attention maps for every predicted frame
+    attn_maps = []   # each: (heads, h_patch, w_patch)
+    for k in range(n_frames):
+        maps = model.get_attention_maps(pred_tensor[k].unsqueeze(0))
+        attn_maps.append(maps)  # may be None if non-ViT
+
+    def overlay(rgb, mean_attn):
+        up   = _upsample_attn(mean_attn, (H, W))
+        heat = (cm.inferno(up)[..., :3] * 255).astype(np.uint8)
+        return (rgb * 0.55 + heat * 0.45).astype(np.uint8)
+
+    # ── Figure 1: ordering (GT row + predicted + attention overlay) ──────────
+    fig1, axes = plt.subplots(2, n_frames, figsize=(n_frames * 2.2, 5))
+    fig1.suptitle("Row 1: ground truth  |  Row 2: predicted + DINO attention", fontsize=9)
+
+    for i in range(n_frames):
+        axes[0, i].imshow(_to_rgb(frames_tensor[i]))
+        axes[0, i].set_title(f"GT {i+1}", fontsize=7)
+        axes[0, i].axis("off")
+
+        sh_idx   = predicted_rank[i]
+        true_pos = shuffled_order[sh_idx]
+        error    = abs(true_pos - i)
+        color    = "green" if error == 0 else ("orange" if error <= 2 else "red")
+
+        rgb = _to_rgb(shuffled_tensor[sh_idx])
+        if attn_maps[i] is not None:
+            mean_attn = attn_maps[i].mean(axis=0)
+            axes[1, i].imshow(overlay(rgb, mean_attn))
+        else:
+            axes[1, i].imshow(rgb)
+        axes[1, i].set_title(f"Pred {i+1}\n(true {true_pos+1})", fontsize=7, color=color)
+        for side in ["top", "bottom", "left", "right"]:
+            axes[1, i].spines[side].set_visible(True)
+            axes[1, i].spines[side].set_edgecolor(color)
+            axes[1, i].spines[side].set_linewidth(3)
+        axes[1, i].axis("off")
+
+    plt.tight_layout()
+    fig1.canvas.draw()
+    buf1 = np.frombuffer(fig1.canvas.buffer_rgba(), dtype=np.uint8)
+    buf1 = buf1.reshape(fig1.canvas.get_width_height()[::-1] + (4,))[..., :3]
+    plt.close(fig1)
+
+    # ── Figure 2: per-head breakdown for first predicted frame ───────────────
+    maps0 = attn_maps[0]
+    buf2  = None
+    if maps0 is not None:
+        num_heads  = maps0.shape[0]
+        n_cols     = num_heads + 1   # individual heads + mean
+        rgb0       = _to_rgb(pred_tensor[0])
+        fig2, axes2 = plt.subplots(1, n_cols, figsize=(n_cols * 2.2, 2.8))
+        fig2.suptitle("DINO attention heads — predicted frame 1", fontsize=9)
+
+        for h in range(num_heads):
+            up   = _upsample_attn(maps0[h], (H, W))
+            heat = (cm.inferno(up)[..., :3] * 255).astype(np.uint8)
+            axes2[h].imshow((rgb0 * 0.55 + heat * 0.45).astype(np.uint8))
+            axes2[h].set_title(f"head {h+1}", fontsize=7)
+            axes2[h].axis("off")
+
+        mean_up   = _upsample_attn(maps0.mean(axis=0), (H, W))
+        mean_heat = (cm.inferno(mean_up)[..., :3] * 255).astype(np.uint8)
+        axes2[-1].imshow((rgb0 * 0.55 + mean_heat * 0.45).astype(np.uint8))
+        axes2[-1].set_title("mean", fontsize=7)
+        axes2[-1].axis("off")
+
+        plt.tight_layout()
+        fig2.canvas.draw()
+        buf2 = np.frombuffer(fig2.canvas.buffer_rgba(), dtype=np.uint8)
+        buf2 = buf2.reshape(fig2.canvas.get_width_height()[::-1] + (4,))[..., :3]
+        plt.close(fig2)
+
+    return buf1, buf2
+
+
+def log_ordering_with_attention(
+    model: PairwiseOrderingModel,
+    frames_root: Path,
+    cuts_json: Path,
+    device: torch.device,
+    n_frames: int = 10,
+    seed: int = 1,
+    n_samples: int = 4,
+):
+    """Log n_samples ordering+attention figures to wandb."""
+    with open(cuts_json) as f:
+        cuts_map = json.load(f)
+
+    transform = get_transform(train=False)
+    rng       = random.Random(seed)
+
+    ordering_imgs = []
+    heads_imgs    = []
+    for i in range(n_samples):
+        buf1, buf2 = _render_ordering_attention(
+            model, cuts_map, frames_root, transform, device, n_frames, rng,
+        )
+        if buf1 is not None:
+            ordering_imgs.append(wandb.Image(buf1, caption=f"sample {i+1}"))
+        if buf2 is not None:
+            heads_imgs.append(wandb.Image(buf2, caption=f"sample {i+1}"))
+
+    log_dict = {}
+    if ordering_imgs:
+        log_dict["viz/ordering_attention"] = ordering_imgs
+    if heads_imgs:
+        log_dict["viz/attention_heads"] = heads_imgs
+    if log_dict:
+        wandb.log(log_dict)
 
 
 # ---------------------------------------------------------------------------
@@ -242,7 +419,7 @@ def _log_example_pairs(dataset: "PairDataset", n: int = 8):
     fig.suptitle("Example training pairs  (left=A, right=B, title=label)", fontsize=8)
 
     for row, idx in enumerate(indices):
-        img_a, img_b, label = dataset[idx]
+        img_a, img_a_nbr, img_b, img_b_nbr, label = dataset[idx]
         lbl = "A before B" if label.item() == 1 else "B before A"
         for col, (img, title) in enumerate([(img_a, f"A  [{lbl}]"), (img_b, "B")]):
             axes[row, col].imshow(_to_rgb(img))
@@ -273,24 +450,35 @@ def train(args):
 
     # Dataset
     print("Building dataset...")
-    full_ds = CutWindowDataset(
+    ds_kwargs = dict(
         frames_root=args.frames_root,
         cuts_json=args.cuts_json,
-        window_size=args.window_size,
-        n_windows_per_cut=args.n_windows_per_cut,
-        train=True,
+        cut_radius=args.cut_radius,
         seed=args.seed,
+        cross_cut_weight=args.cross_cut_weight,
     )
+    full_ds       = CutWindowDataset(**ds_kwargs, train=True)
+    full_ds_val   = CutWindowDataset(**ds_kwargs, train=False)
 
-    val_size  = int(len(full_ds) * args.val_fraction)
+    if args.data_fraction < 1.0:
+        rng = random.Random(args.seed)
+        k = max(1, int(len(full_ds.pairs) * args.data_fraction))
+        chosen = rng.sample(range(len(full_ds.pairs)), k)
+        full_ds.pairs     = [full_ds.pairs[i]     for i in chosen]
+        full_ds_val.pairs = [full_ds_val.pairs[i] for i in chosen]
+        full_ds.n_within  = len(full_ds.pairs)
+
+    val_size   = int(len(full_ds) * args.val_fraction)
     train_size = len(full_ds) - val_size
-    train_ds, val_ds = random_split(
-        full_ds, [train_size, val_size],
-        generator=torch.Generator().manual_seed(args.seed),
+    generator  = torch.Generator().manual_seed(args.seed)
+    train_indices, val_indices = random_split(
+        range(len(full_ds)), [train_size, val_size], generator=generator,
     )
-    val_ds.dataset.transform = get_transform(train=False)
+    from torch.utils.data import Subset
+    train_ds = Subset(full_ds,     list(train_indices))
+    val_ds   = Subset(full_ds_val, list(val_indices))
 
-    labels  = [lbl for _, _, lbl in full_ds.pairs]
+    labels  = [lbl for *_, lbl, _w in full_ds.pairs]
     n_pos   = sum(1 for l in labels if l == 1)
 
     dataset_stats = {
@@ -347,33 +535,35 @@ def train(args):
     log = []
     best_val_acc = 0.0
 
-    # GradCAM target layer — only supported for ResNet-style encoders
-    if "resnet" in args.encoder:
-        gradcam_layer = "encoder.layer4"
-    elif "vit" in args.encoder:
-        gradcam_layer = None  # use attention rollout instead (not yet implemented)
-    else:
-        gradcam_layer = None
+    use_gradcam  = "resnet" in args.encoder
+    use_attention = "vit"    in args.encoder
+    gradcam_layer = "encoder.layer4" if use_gradcam else None
 
     for epoch in range(1, args.epochs + 1):
         # --- Train ---
         model.train()
         train_loss, train_acc, n_batches = 0.0, 0.0, 0
         t0 = time.time()
-        for img_a, img_b, labels in train_loader:
-            img_a = img_a.to(device)
-            img_b = img_b.to(device)
-            labels = labels.to(device)
+        for img_a, img_a_nbr, img_b, img_b_nbr, labels, weights in train_loader:
+            img_a     = img_a.to(device)
+            img_a_nbr = img_a_nbr.to(device)
+            img_b     = img_b.to(device)
+            img_b_nbr = img_b_nbr.to(device)
+            labels    = labels.to(device)
+            weights   = weights.to(device)
 
             optimizer.zero_grad()
-            logits = model(img_a, img_b)
-            loss = criterion(logits, labels)
+            logit_ab = model(img_a, img_a_nbr, img_b, img_b_nbr)
+            logit_ba = model(img_b, img_b_nbr, img_a, img_a_nbr)
+            bce      = (F.binary_cross_entropy_with_logits(logit_ab, labels, reduction='none') * weights).mean()
+            anti     = ((logit_ab + logit_ba).pow(2) * weights).mean()
+            loss     = bce + 0.1 * anti
             loss.backward()
             nn.utils.clip_grad_norm_(model.parameters(), 1.0)
             optimizer.step()
 
             train_loss += loss.item()
-            train_acc  += pairwise_accuracy(logits.detach(), labels)
+            train_acc  += pairwise_accuracy(logit_ab.detach(), labels)
             n_batches  += 1
 
         train_loss /= n_batches
@@ -383,11 +573,13 @@ def train(args):
         model.eval()
         val_loss, val_acc, n_val = 0.0, 0.0, 0
         with torch.no_grad():
-            for img_a, img_b, labels in val_loader:
-                img_a = img_a.to(device)
-                img_b = img_b.to(device)
-                labels = labels.to(device)
-                logits = model(img_a, img_b)
+            for img_a, img_a_nbr, img_b, img_b_nbr, labels, _ in val_loader:
+                img_a     = img_a.to(device)
+                img_a_nbr = img_a_nbr.to(device)
+                img_b     = img_b.to(device)
+                img_b_nbr = img_b_nbr.to(device)
+                labels    = labels.to(device)
+                logits = model(img_a, img_a_nbr, img_b, img_b_nbr)
                 val_loss += criterion(logits, labels).item()
                 val_acc  += pairwise_accuracy(logits, labels)
                 n_val    += 1
@@ -401,10 +593,15 @@ def train(args):
                 model, args.frames_root, args.cuts_json,
                 n_seq=args.tau_n_seq, seq_len=args.tau_seq_len, device=device,
             )
-            if gradcam_layer:
+            if use_gradcam:
                 log_ordering_with_gradcam(
                     model, args.frames_root, args.cuts_json, device,
                     n_frames=10, target_layer=gradcam_layer, seed=epoch,
+                )
+            if use_attention:
+                log_ordering_with_attention(
+                    model, args.frames_root, args.cuts_json, device,
+                    n_frames=10, seed=epoch,
                 )
 
         elapsed = time.time() - t0
@@ -467,9 +664,10 @@ def parse_args():
     p.add_argument("--epochs",      type=int, default=20)
     p.add_argument("--batch_size",  type=int, default=64)
     p.add_argument("--lr",          type=float, default=1e-4)
-    p.add_argument("--window_size",       type=int, default=10)
-    p.add_argument("--n_windows_per_cut", type=int, default=20)
+    p.add_argument("--cut_radius",         type=int, default=5)
     p.add_argument("--val_fraction",    type=float, default=0.1)
+    p.add_argument("--data_fraction",    type=float, default=1.0)
+    p.add_argument("--cross_cut_weight", type=float, default=0.5)
     p.add_argument("--num_workers", type=int, default=4)
     p.add_argument("--tau_n_seq",   type=int, default=50)
     p.add_argument("--tau_seq_len", type=int, default=30)
